@@ -1,0 +1,139 @@
+@use '../util' as *;
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(30);
+
+    @include breakpoint(medium) { 
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card-bg);
+    // color: var(--text-color);
+    // width: rem(255);
+    padding: rem(25);
+    text-align: center;
+    border-radius: rem(5);
+    flex: 1;
+    transition: background 150ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--card-hover);
+    }
+
+    &--facebook {
+        border-top: 4px solid var(--facebook);
+    }
+
+    &--twitter {
+        border-top: 4px solid var(--twitter);
+    }
+
+    &--instagram {
+        padding-top: rem(30);
+
+        &::before {
+            content: '';
+            height: rem(5);
+            width: 100%;
+            background: linear-gradient(225deg, var(--instagram-end), var(--instagram-middle), var(--instagram-start)); //var(--instagram-start);
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+        // border-top: 4px solid var(--insta);
+    }
+
+    &--youtube {
+        border-top: 4px solid var(--youtube);
+    }
+
+    &_subtitle {
+        font-size: rem(14);
+        font-weight: 700;
+    }
+
+    &_platform {
+        height: rem(20);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: rem(28);
+    }
+
+    &_icon {
+        margin-right: rem(8);
+        &--facebook {
+        }
+        &--twitter {}
+        &--instagram {}
+        &--youtube {}
+
+    }
+
+    &_username {
+        font-size: rem(12);
+        font-weight: bold;
+    }
+
+    &_followers {
+        margin-bottom: rem(25);
+    }
+
+    &_count {
+        color: var(--text-color);
+        font-weight: bold;
+        letter-spacing: rem(-2);
+        line-height: 1;
+        margin-bottom: rem(9);
+
+        &--big {
+            font-size: rem(56);
+        }
+        &--small {
+            font-size: rem(32);
+
+        }
+    }
+
+    &_label {
+        font-size: rem(12);
+        font-weight: 400;
+        color: var(--text-color2);
+        text-transform: uppercase;
+        letter-spacing: rem(5);
+    }
+
+    &_change {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(12);
+        font-weight: bold;
+
+        &--up {
+            color: var(--limegreen);
+        }
+        &--down {
+            color: var(--brightred);
+        }
+
+        img {
+            margin-right: rem(4);
+        }
+    }
+
+    &_number {
+        
+    }
+}
